@@ -7,7 +7,7 @@ Group:          Development/Libraries
 URL:            http://fallabs.com/kyotocabinet/
 Source:         http://fallabs.com/tokyocabinet/pkg/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  pkgconfig, zlib-devel, autoconf, automake
+BuildRequires:  gcc-c++, zlib-devel, pkgconfig
 
 %description
 Kyoto Cabinet is a library of routines for managing a database.
@@ -23,7 +23,7 @@ Records are organized in hash table or B+ tree.
 Summary:        Headers for developing programs that will use %{name}
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
-BuildRequires:  pkgconfig, zlib-devel, autoconf, automake
+BuildRequires:  gcc-c++, zlib-devel, pkgconfig
 
 %description devel
 This package contains the libraries and header files needed for
@@ -70,6 +70,10 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Tue Nov 04 2014 Takashi Masuda <masutaka@feedforce.jp>
+- Add gcc-c++ to BuildRequires
+- Remove autoconf and automake from BuildRequires
+
 * Fri Jun 15 2012 Keisuke Kawahara <kyohsuke@conafie.jp>
 - bump up  1.2.76.
 
